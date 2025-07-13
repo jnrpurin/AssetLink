@@ -22,7 +22,7 @@ export async function renderComputerList(container) {
 
       // Placeholder image (substitua por sua futura URL ou upload)
       const img = document.createElement('img');
-      img.src = computer.imageUrl;
+      img.src = computer.imageUrl || 'https://placehold.co/400x200/cccccc/333333?text=No+Image';
       img.alt = computer.name;
 
       const info = document.createElement('div');
@@ -74,25 +74,31 @@ export async function renderComputerList(container) {
     container.appendChild(list);
 
     list.addEventListener('click', async (e) => {
-      const id = e.target.dataset.id;
+      const targetButton = e.target.closest('button');
+      if (!targetButton) return;
+
+      const id = targetButton.dataset.id;
       if (!id) return;
 
-      if (e.target.classList.contains('delete-btn')) {
+      if (targetButton.classList.contains('delete-btn')) {
         if (confirm('Do you really want to delete this computer?')) {
-          await deleteComputer(id);
-          renderComputerList(container);
+          try {
+            await deleteComputer(id);
+            alert('Computer deleted successfully!');
+            renderComputerList(container);
+          } catch (error) {
+            alert(`Error deleting computer: ${error.message || 'An unknown error occurred.'}`);
+            console.error('Delete error:', error);
+          }
         }
-      }
-
-      if (e.target.classList.contains('edit-btn')) {
+      } else if (targetButton.classList.contains('edit-btn')) {
         renderComputerForm(container, id);
-      }
-
-      if (e.target.classList.contains('assign-btn')) {
+      } else if (targetButton.classList.contains('assign-btn')) {
         alert('Assign/Reassign functionality not implemented yet.');
       }
     });
   } catch (error) {
-    container.innerHTML = `<p>${error.message}</p>`;
+    container.innerHTML = `<p class="text-center text-red-500">Error loading computers: ${error.message}</p>`;
+    console.error('Error in renderComputerList:', error);
   }
 }

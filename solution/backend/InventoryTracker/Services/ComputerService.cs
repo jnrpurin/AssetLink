@@ -2,7 +2,6 @@ using AutoMapper;
 using InventoryTracker.Dtos;
 using InventoryTracker.Models;
 using InventoryTracker.Repositories;
-using Microsoft.Extensions.Logging;
 
 namespace InventoryTracker.Services
 {
