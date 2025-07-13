@@ -15,7 +15,7 @@ namespace InventoryTracker.Repositories
 
         public async Task<IEnumerable<Computer>> GetAllAsync()
         {
-            return await _context.Computers.ToListAsync();
+            return await _context.Computers.Include(c => c.ComputerManufacturer).ToListAsync();
         }
 
         public async Task<Computer?> GetByIdAsync(int id)

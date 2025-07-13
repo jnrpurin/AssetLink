@@ -8,10 +8,10 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-Console.WriteLine("Using SQLite database: " + builder.Configuration.GetConnectionString("LocalSQLiteDb"));
+
+var dbPath = Path.Combine(builder.Environment.ContentRootPath, "Database", "InventoryTracker.db");
 builder.Services.AddDbContext<InventoryDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("LocalSQLiteDb")));
-    
+    options.UseSqlite($"Data Source={dbPath}"));
 
 builder.Services.AddScoped<IComputerRepository, ComputerRepository>();
 builder.Services.AddScoped<IComputerService, ComputerService>();
