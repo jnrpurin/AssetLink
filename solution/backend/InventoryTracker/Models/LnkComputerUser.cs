@@ -8,8 +8,7 @@ namespace InventoryTracker.Models
         public DateTime AssignStartDt { get; set; } = DateTime.Now;
         public DateTime? AssignEndDt { get; set; } = null;
 
-        // Propriedades de navegação
-        public User User { get; set; }
-        public Computer Computer { get; set; }
+        public User? User { get; set; }
+        public Computer? Computer { get; set; }
     }
 }
