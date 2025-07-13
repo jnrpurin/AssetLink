@@ -37,8 +37,10 @@ obj/
 *.dll
 *.exe
 
-# Database files 
-*.db
+# Database files - I choose to not ignore these, for this challenge since I changed the table names a bit
+# *.db
+# *.db-shm
+# *.db-wal
 
 # Publish profiles
 Properties/PublishProfiles/
