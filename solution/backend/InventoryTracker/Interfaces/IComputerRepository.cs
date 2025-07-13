@@ -10,5 +10,10 @@ namespace InventoryTracker.Repositories
         Task UpdateAsync(Computer computer);
         Task DeleteAsync(Computer computer);
         Task SaveChangesAsync();
+        
+        Task<LnkComputerUser?> GetActiveComputerAssignmentAsync(int computerId);
+        Task AddComputerAssignmentAsync(LnkComputerUser assignment);
+        Task UpdateComputerAssignmentAsync(LnkComputerUser assignment);
+        Task<User?> GetUserByIdAsync(int userId);
     }
 }

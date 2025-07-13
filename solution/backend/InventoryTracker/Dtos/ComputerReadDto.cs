@@ -2,8 +2,8 @@ namespace InventoryTracker.Dtos
 {
     public class ComputerReadDto
     {
-        public int Id { get; set; } 
-        public string SerialNumber { get; set; } = null!; 
+        public int Id { get; set; }
+        public string SerialNumber { get; set; } = null!;
 
         public string ComputerManufacturerName { get; set; } = null!;
 
@@ -12,6 +12,9 @@ namespace InventoryTracker.Dtos
         public DateTime PurchaseDt { get; set; }
         public DateTime WarrantyExpirationDt { get; set; }
         public DateTime CreateDt { get; set; }
-        
+
+        public string? Status { get; set; }
+        public string? AssignedTo { get; set; }
+        public DateTime? AssignedOnDt { get; set; }
     }
 }

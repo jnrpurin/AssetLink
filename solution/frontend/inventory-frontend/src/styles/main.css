@@ -114,8 +114,8 @@ main {
 }
 
 .specifications-text {
-  max-height: 6em; /* ~4 linhas, ajuste conforme o tamanho da fonte */
+  max-height: 6em; 
   overflow-y: auto;
-  padding-right: 0.5rem; /* espaço para scrollbar */
+  padding-right: 0.5rem; 
   word-break: break-word;
 }
