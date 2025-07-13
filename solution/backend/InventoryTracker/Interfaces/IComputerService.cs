@@ -9,5 +9,6 @@ namespace InventoryTracker.Services
         Task<ComputerReadDto> CreateAsync(ComputerCreateDto dto);
         Task<bool> UpdateAsync(int id, ComputerUpdateDto dto);
         Task<bool> DeleteAsync(int id);
+        Task<bool> AssignComputerToUserAsync(ComputerAssignUserDto dto); 
     }
 }

@@ -1,5 +1,6 @@
 import { fetchComputers, deleteComputer } from '../services/api.js';
 import { renderComputerForm } from './computerForm.js';
+import { formatUSDate } from '../utils/utils.js';
 
 export async function renderComputerList(container) {
   container.innerHTML = '<p>Loading computers...</p>';
@@ -40,10 +41,10 @@ export async function renderComputerList(container) {
       const col2 = document.createElement('div');
       col2.className = 'computer-column';
       col2.innerHTML = `
-        <div><strong>Purchased on:</strong> ${computer.purchaseDt || '-'} </div>
-        <div><strong>Warranty until:</strong> ${computer.warrantyExpirationDt || '-'} </div>
-        <div><strong>Assigned on:</strong> - </div>
-        <div><strong>Assigned to:</strong> - </div>
+        <div><strong>Purchased on:</strong> ${formatUSDate(computer.purchaseDt) || '-'} </div>
+        <div><strong>Warranty until:</strong> ${formatUSDate(computer.warrantyExpirationDt) || '-'} </div>
+        <div><strong>Assigned on:</strong> ${formatUSDate(computer.assignedOnDt) || '-'} </div>
+        <div><strong>Assigned to:</strong> ${computer.assignedTo || '-'} </div>
       `;
 
       info.appendChild(col1);

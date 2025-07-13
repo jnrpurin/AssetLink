@@ -85,5 +85,21 @@ namespace InventoryTracker.Controllers
             _logger.LogInformation("Computer with ID: {Id} deleted successfully.", id); 
             return NoContent();
         }
+        
+        [HttpPost("assign")] 
+        public async Task<IActionResult> AssignComputer([FromBody] ComputerAssignUserDto dto)
+        {
+            _logger.LogInformation("POST request to assign computer ID: {ComputerId} to User ID: {UserId} received.", dto.ComputerId, dto.UserId);
+            var success = await _service.AssignComputerToUserAsync(dto);
+
+            if (!success)
+            {
+                _logger.LogWarning("Assignment failed for Computer ID: {ComputerId} to User ID: {UserId}.", dto.ComputerId, dto.UserId);
+                return BadRequest("Could not assign computer. Check computer or user ID.");
+            }
+
+            _logger.LogInformation("Computer ID: {ComputerId} successfully assigned to User ID: {UserId}.", dto.ComputerId, dto.UserId);
+            return Ok("Computer assigned successfully.");
+        }
     }
 }
