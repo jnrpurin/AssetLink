@@ -7,7 +7,7 @@ namespace InventoryTracker.Models
         public int ComputerStatusId { get; set; }
         public DateTime AssignDt { get; set; } = DateTime.Now;
 
-        public Computer Computer { get; set; }
-        public ComputerStatus ComputerStatus { get; set; }
+        public Computer? Computer { get; set; }
+        public ComputerStatus? ComputerStatus { get; set; }
     }
 }
