@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject> <!-- Garante que o projeto é reconhecido como de teste -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Pacotes XUnit para o framework de testes -->
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageReference Include="xunit" Version="2.8.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    
+    <!-- Pacote Moq para mocking -->
+    <PackageReference Include="Moq" Version="4.20.72" /> 
+    
+    <!-- Pacote AutoMapper (necessário se você usa IMapper diretamente nos testes ou para configurar perfis) -->
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+
+    <!-- Pacote para cobertura de código (opcional, mas bom ter) -->
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InventoryTracker\InventoryApp.csproj" /> <!-- ATENÇÃO AQUI! -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Usings globais (opcional, mas pode ajudar a evitar 'using' em cada arquivo de teste) -->
+    <Using Include="Xunit" />
+    <Using Include="Moq" />
+  </ItemGroup>
+
+</Project>

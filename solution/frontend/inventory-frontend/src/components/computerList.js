@@ -131,14 +131,11 @@ export async function renderComputerList(container) {
 
       const col2 = document.createElement('div');
       col2.className = 'computer-column'; 
-      const assignedToFullName = (computer.assignedToUserFirstName && computer.assignedToUserLastName)
-        ? `${computer.assignedToUserFirstName} ${computer.assignedToUserLastName}`
-        : '-';
       col2.innerHTML = `
         <div><strong>Purchased on:</strong> ${formatUSDate(computer.purchaseDt) || '-'} </div>
         <div><strong>Warranty until:</strong> ${formatUSDate(computer.warrantyExpirationDt) || '-'} </div>
         <div><strong>Assigned on:</strong> ${formatUSDate(computer.assignedOnDt) || '-'} </div>
-        <div><strong>Assigned to:</strong> ${assignedToFullName} </div>
+        <div><strong>Assigned to:</strong> ${computer.assignedTo || '-'} </div>
       `;
 
       info.appendChild(col1);
