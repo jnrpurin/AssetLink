@@ -6,7 +6,7 @@ namespace InventoryTracker.Models
         public required string FirstName { get; set; }
         public required string LastName { get; set; }
         public required string EmailAddress { get; set; }
-        public DateTime CreateDt { get; set; } = DateTime.Now;
+        public DateTime CreateDt { get; set; } = DateTime.UtcNow;
 
         public ICollection<LnkComputerUser> ComputerUsers { get; set; } = [];
     }

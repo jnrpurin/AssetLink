@@ -1,11 +1,4 @@
-const API_URL = 'http://localhost:5072/api/Computers/';
 const API_BASE_URL = 'http://localhost:5072/api';
-
-export async function fetchComputers_old() {
-  const response = await fetch(API_URL);
-  if (!response.ok) throw new Error('Error to find computers.');
-  return await response.json();
-}
 
 export async function fetchComputers() {
   try {
@@ -33,16 +26,6 @@ export async function fetchComputerById(id) {
       console.error(`Error fetching computer with ID ${id}:`, error);
       throw error;
   }
-}
-
-export async function createComputer_old(data) {
-  const response = await fetch(API_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
-  });
-  if (!response.ok) throw new Error('Error creating new computer.');
-  return await response.json();
 }
 
 export async function createComputer(computerData) {
@@ -93,16 +76,44 @@ export async function deleteComputer(id) {
           const errorData = await response.json();
           throw new Error(errorData.Message || `HTTP error! status: ${response.status}`);
       }
-      // No content to return for 204 No Content
+
   } catch (error) {
       console.error(`Error deleting computer with ID ${id}:`, error);
       throw error;
   }
 }
 
-// Placeholder for assignComputer (to be implemented later)
+export async function fetchUsers() { 
+  try {
+      const response = await fetch(`${API_BASE_URL}/Users`);
+      if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.Message || `HTTP error! status: ${response.status}`);
+      }
+      return await response.json();
+  } catch (error) {
+      console.error('Error fetching users:', error);
+      throw error;
+  }
+}
+
 export async function assignComputer(assignData) {
-  // This function will be implemented when we work on the assign feature
-  console.log('Assign computer data:', assignData);
-  throw new Error('Assign computer functionality not implemented yet.');
+  try {
+      const response = await fetch(`${API_BASE_URL}/Computers/assign`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(assignData),
+      });
+      if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.Message || `HTTP error! status: ${response.status}`);
+      }
+      
+      return await response.text();
+  } catch (error) {
+      console.error('Error assigning computer:', error);
+      throw error;
+  }
 }
