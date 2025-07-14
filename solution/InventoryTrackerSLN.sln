@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryApp", "backend\Inv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryTracker.Service.Tests", "backend\InventoryTracker.Service.Tests\InventoryTracker.Service.Tests.csproj", "{F457E705-6A56-4AB9-A2E2-E66672C6755F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryTracker.Integration.Tests", "backend\InventoryTracker.Integration.Tests\InventoryTracker.Integration.Tests.csproj", "{21C4CBB1-F97E-43BE-8686-7D82E22D084E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,18 @@ Global
 		{F457E705-6A56-4AB9-A2E2-E66672C6755F}.Release|x64.Build.0 = Release|Any CPU
 		{F457E705-6A56-4AB9-A2E2-E66672C6755F}.Release|x86.ActiveCfg = Release|Any CPU
 		{F457E705-6A56-4AB9-A2E2-E66672C6755F}.Release|x86.Build.0 = Release|Any CPU
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E}.Debug|x64.Build.0 = Debug|Any CPU
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E}.Debug|x86.Build.0 = Debug|Any CPU
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E}.Release|x64.ActiveCfg = Release|Any CPU
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E}.Release|x64.Build.0 = Release|Any CPU
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E}.Release|x86.ActiveCfg = Release|Any CPU
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,5 +67,6 @@ Global
 		{807C5C45-52DC-AE99-BFD5-14B36ED08CDD} = {1AE8ACA6-933B-BF2A-3671-3E2EAC007D16}
 		{F815D9FE-64CA-44E3-89DE-28A860322F52} = {807C5C45-52DC-AE99-BFD5-14B36ED08CDD}
 		{F457E705-6A56-4AB9-A2E2-E66672C6755F} = {1AE8ACA6-933B-BF2A-3671-3E2EAC007D16}
+		{21C4CBB1-F97E-43BE-8686-7D82E22D084E} = {1AE8ACA6-933B-BF2A-3671-3E2EAC007D16}
 	EndGlobalSection
 EndGlobal
